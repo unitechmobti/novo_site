@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Consultoria de Informática</title>
+    <style>
+        /* --- VARIÁVEIS E BASE --- */
+        :root {
+            --bg-light: #f4f5f7;       
+            --bg-card: #ffffff;        
+            --dark-main: #1a1d20;      
+            --dark-muted: #343a40;     
+            --steel-blue: #2b5c8f;     
+            --steel-blue-hover: #1d3f63;
+            --border-color: #dee2e6;   
+            --text-dark: #212529;
+            --text-muted: #6c757d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease-in-out;
+        }
+
+        /* --- HEADER & NAVEGAÇÃO --- */
+        header {
+            background-color: var(--dark-main);
+            color: #ffffff;
+            border-bottom: 3px solid var(--steel-blue);
+        }
+		        /* --- CONTEÚDO / SERVIÇOS --- */
+        .main-content {
+            max-width: 1200px;
+            padding: 0 2rem;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .logo span {
+            color: var(--steel-blue);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-item a {
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #e9ecef;
+        }
+
+        .nav-item a:hover {
+            color: var(--steel-blue);
+        }
+
+        /* --- TÍTULO DA PÁGINA --- */
+        .page-header {
+            background-color: var(--dark-main);
+            color: #ffffff;
+            padding: 2rem 0rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .page-header h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            color: var(--border-color);
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1rem;
+        }
+
+        /* --- CONTEÚDO DE CONTATO --- */
+        .contact-container {
+            max-width: 1200px;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+        }
+
+        .section-header {
+            border-left: 5px solid var(--steel-blue);
+            padding-left: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            color: var(--dark-main);
+            letter-spacing: 0.5px;
+        }
+
+        /* --- FORMULÁRIO INDUSTRIAL --- */
+        .contact-form-block {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 3rem 2.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--dark-muted);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            font-size: 1rem;
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-color);
+            color: var(--text-dark);
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--steel-blue);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(43, 92, 143, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .btn-submit {
+            background-color: var(--steel-blue);
+            color: #ffffff;
+            border: none;
+            padding: 1rem 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--steel-blue-hover);
+        }
+
+        /* --- CANAIS DE ATENDIMENTO --- */
+        .info-sidebar {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+			padding-right: 10rem; 
+        }
+
+        .info-prefix {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--steel-blue);
+            margin-bottom: 0.5rem;
+            display: block;
+            letter-spacing: 1px;
+        }
+
+        .info-card h3 {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            color: var(--dark-main);
+            margin-bottom: 1rem;
+        }
+
+        .info-card p {
+            color: var(--dark-muted);
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+		
+		    .grid-dois-blocos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--dark-main);
+            color: var(--border-color);
+            padding: 3rem 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            border-top: 4px solid var(--dark-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 6rem;
+        }
+
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 968px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+        }
+		
+       /* --- VARIÁVEIS E BASE --- */
+        :root {
+            --bg-light: #f4f5f7;       /* Cinza claro de fundo */
+            --bg-card: #ffffff;        /* Branco para blocos limpos */
+            --dark-main: #1a1d20;      /* Preto industrial / Grafite escuro */
+            --dark-muted: #343a40;     /* Cinza escuro para textos e bordas */
+            --steel-blue: #2b5c8f;     /* Azul industrial / Aço */
+            --steel-blue-hover: #1d3f63;
+            --border-color: #dee2e6;   /* Borda cinza clara */
+            --text-dark: #212529;
+            --text-muted: #6c757d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease-in-out;
+        }
+
+        /* --- HEADER & NAVEGAÇÃO --- */
+        header {
+            background-color: var(--dark-main);
+            color: #ffffff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--steel-blue);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .logo span {
+            color: var(--steel-blue);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-item a {
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #e9ecef;
+        }
+
+        .nav-item a:hover {
+            color: var(--steel-blue);
+        }
+
+        .nav-item-press a {
+		    font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--steel-blue);
+        }
+		
+		    .btn-contact {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid var(--steel-blue);
+            padding: 0.5rem 1.2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+		
+
+        .btn-contact:hover {
+            background-color: var(--steel-blue);
+            color: #ffffff;
+        }
+
+        /* --- BANNER WIDESCREEN DA EMPRESA --- */
+        .company-hero-banner {
+            width: 100%;
+            background-color: #e2e8f0; /* Fundo reserva caso a imagem falhe */
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        /* Container que força a proporção widescreen clássica (ex: 16:9 ou panorâmica) */
+        .banner-aspect-ratio {
+            position: relative;
+            width: 100%;
+            max-height: 480px; /* Limite de altura para não soterrar o conteúdo */
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .banner-aspect-ratio img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Faz a imagem cobrir a área sem distorcer */
+            object-position: center;
+        }
+
+        /* Abaixo da imagem, uma faixa sólida industrial para o título principal */
+        .hero-intro-bar {
+            background-color: var(--dark-main);
+            color: #ffffff;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .hero-intro-bar h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-intro-bar p {
+            color: var(--border-color);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* --- CONTEÚDO / SERVIÇOS --- */
+        .main-content {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            border-left: 5px solid var(--steel-blue);
+            padding-left: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            color: var(--dark-main);
+            letter-spacing: 0.5px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .grid-services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 2.5rem;
+            position: relative;
+            transition: border-color 0.2s ease;
+        }
+
+        .service-card:hover {
+            border-color: var(--steel-blue);
+        }
+
+        .card-number {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--steel-blue);
+            margin-bottom: 1rem;
+            display: block;
+            letter-spacing: 1px;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            color: var(--dark-main);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--dark-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- FOOTER COESIVO --- */
+        footer {
+            background-color: var(--dark-main);
+            color: var(--border-color);
+            padding: 3rem 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            border-top: 4px solid var(--dark-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none; /* Simplificação para mobile */
+            }
+            
+            .hero-intro-bar h1 {
+                font-size: 1.7rem;
+            }
+
+            .banner-aspect-ratio {
+                height: 250px; /* Reduz o tamanho do banner em telas de celular */
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <!-- NAVEGAÇÃO -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">Uni<span>Tech</span></a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html">A Empresa</a></li>
+                <li class="nav-item"><a href="#servicos">Serviços</a></li>
+                <li class="nav-item-press"><a href="#contato">Contato</a></li>
+            </ul>
+            <a href="#contato" class="btn-contact">Solicitar Proposta</a>
+        </div>
+    </header>
+
+    <!-- CABEÇALHO DA PÁGINA -->
+    <section class="page-header">
+        <h1>Central de Atendimento</h1>
+        <p>Conecte-se com nossa equipe de engenharia e suporte para aberturas de chamados ou propostas comerciais.</p>
+    </section>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+	 
+        <!-- COLUNA 2: CANAIS DIRETOS -->
+        <aside class="info-sidebar">
+            <div class="section-header">
+                <h2>Canais Diretos</h2>
+            </div>
+
+			<!-- CONTEÚDO PRINCIPAL / SERVIÇOS -->
+        <div class="grid-services">
+            <!-- Card 1 -->
+            <div class="service-card">
+
+                <h3>Comercial & Suporte</h3>
+                <p><strong>Telefone:</strong> (51) 99677.3811</p>
+                <p><strong>E-mail:</strong> unitechmobti@gmail.com</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="service-card">
+                <h3>Horário de Operação</h3>
+                <p><strong>Administrativo:</strong> Seg a Sex, das 08:30 às 17:30</p>
+                <p><strong>DataCenter/Monitoramento:</strong> 24h em regime de plantão técnico</p>
+            </div>
+
+
+        </div>
+    </main>
+	
+	
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 UNITECHMOB TI | Empresa de Tecnologia da Informação.</p>
+    </footer>
+
+</body>
+</html>
